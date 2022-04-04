@@ -1,2 +1,2 @@
 # meetup-maker
-Telegram bot for economics homework KPFU
+Телеграм бот для задания по экономике и предпринимательству КФУ
