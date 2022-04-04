@@ -1,3 +1,4 @@
+from data_main import write_row
 
 def create_get_params(message, com, bot):
     coms = com.split(';')
@@ -15,6 +16,8 @@ def com_create(message, com, bot):
     p = create_get_params(message, com, bot)
     if p is False:
         return False
-    name, decr, num = p
-    #write_to_csv(name, decr, num)
+    name, description, num = p
+    login = message.from_user.username
+    write_row(login, name, description, num)
+    bot.send_message(message.chat.id, 'Встреча успешно создана!')
     return True

@@ -1,16 +1,15 @@
 import csv
 
-def pishem(login, name, description, needhum):
+def write_row(login, name, description, need_num):
     try:
-        f = open('input.csv')  
+        f = open('data.csv')  
     except IOError as e:
         print('NET')
-        with open("input.csv", "w") as f:
-            writer = csv.writer(f)
-            writer.writerow(("id","CreatorLogin","Name","Discription","NeedHum","CurrentNum"))
-            writer.writerow([1, login, name, description, needhum])
+        with open("data.csv", "w") as f:
+            writer = csv.writer(f, delimiter=';', lineterminator='\r')
+            writer.writerow(("id","CreatorLogin","Name","Discription","NeedNum","CurrentNum"))
+            writer.writerow([1, login, name, description, need_num, 1])
     else:
-        with open("input.csv", "a") as f:
-            writer = csv.writer(f)
-            writer.writerow([2, login, name, description, needhum])
-pishem("bapa", "pivo", "lubit pivo bara", 4)
+        with open("data.csv", "a") as f:
+            writer = csv.writer(f, delimiter=';', lineterminator='\r')
+            writer.writerow([2, login, name, description, need_num, 1])
